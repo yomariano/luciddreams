@@ -29,16 +29,16 @@ export default function NewDream() {
     realityChecks: 0
   })
 
-  const [selectedEmotions, setSelectedEmotions] = useState([])
-  const [selectedCategories, setSelectedCategories] = useState([])
+  const [selectedEmotions, setSelectedEmotions] = useState<string[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Dream entry:', { ...formData, emotions: selectedEmotions, categories: selectedCategories })
     // Here you would typically save to database
   }
 
-  const toggleEmotion = (emotion) => {
+  const toggleEmotion = (emotion: string) => {
     setSelectedEmotions(prev => 
       prev.includes(emotion) 
         ? prev.filter(e => e !== emotion)
@@ -46,7 +46,7 @@ export default function NewDream() {
     )
   }
 
-  const toggleCategory = (category) => {
+  const toggleCategory = (category: string) => {
     setSelectedCategories(prev => 
       prev.includes(category) 
         ? prev.filter(c => c !== category)
