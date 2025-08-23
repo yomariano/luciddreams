@@ -1,0 +1,23 @@
+{
+  "name": "luciddreams",
+  "description": "LucidDreams - A SaaS platform for sharing and tracking lucid dreams with gamification features",
+  "repository": "https://github.com/yomariano/luciddreams.git",
+  "branch": "main",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".",
+    "port": 3000
+  },
+  "environment": {
+    "NODE_ENV": "production",
+    "NEXT_TELEMETRY_DISABLED": "1"
+  },
+  "domains": [
+    "luciddreams.teabag.online"
+  ],
+  "deployment": {
+    "type": "static",
+    "buildCommand": "npm run build",
+    "outputDirectory": ".next"
+  }
+}
